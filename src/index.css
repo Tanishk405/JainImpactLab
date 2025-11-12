@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fefefe;
+}
+
+
+.tb_review_hub_wrap{
+  display: none !important;
+}
