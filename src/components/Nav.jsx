@@ -34,97 +34,95 @@ const Nav = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* ✅ Only Logo Section Adjusted */}
+
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <motion.div
-            className="flex items-center gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img
-              src={logo}
-              alt="Jain Impact Labs Logo"
-              className="w-12 h-12 object-contain rounded-full group-hover:scale-105 transition-transform duration-300"
-            />
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 group-hover:text-indigo-700 transition-colors">
-              Jain Impact Labs
-            </span>
-          </motion.div>
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-14 h-14 rounded-full transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="text-lg md:text-xl font-bold text-gray-900">
+            Jain Impact Labs
+          </span>
         </Link>
 
-        {/* ✅ Desktop Nav (Unchanged) */}
-        <ul className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-gray-700 font-medium">
+        {/* Desktop Nav — visible on screens 1024px+ */}
+        <ul className="hidden lg:flex items-center gap-5 text-gray-700 font-medium whitespace-nowrap">
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link
                 to={link.to}
-                className="hover:text-indigo-600 transition-colors duration-200"
+                className="hover:text-indigo-600 transition-colors duration-200 text-[15px]"
               >
                 {link.name}
               </Link>
             </li>
           ))}
+
           <li>
             <Link
               to="/contact"
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700 transition-all"
+              className="bg-indigo-600 text-white px-3 py-2 rounded-lg shadow text-[14px] hover:bg-indigo-700"
             >
               Let’s Talk
             </Link>
           </li>
+
           <li>
             <Link
               to="/brochure"
-              className="border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-all"
+              className="border border-indigo-600 text-indigo-600 px-3 py-2 rounded-lg text-[14px] hover:bg-indigo-50"
             >
               Download Brochure
             </Link>
           </li>
         </ul>
 
-        {/* ✅ Mobile Toggle */}
+        {/* Mobile Toggle — visible below 1024px */}
         <button
-          className="md:flex lg:hidden text-2xl text-gray-700"
+          className="lg:hidden text-3xl text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
-      {/* ✅ Mobile Menu (Unchanged) */}
+      {/* Mobile Menu */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="md:flex lg:hidden flex-col bg-white shadow-xl border-t border-gray-100"
+          className="lg:hidden bg-white shadow-xl border-t border-gray-100"
         >
           <ul className="flex flex-col items-center space-y-4 py-4 text-gray-700 font-medium">
             {navLinks.map((link) => (
               <li key={link.name} className="w-full text-center">
                 <Link
                   to={link.to}
-                  className="block w-full py-2 hover:bg-gray-100 transition-colors"
+                  className="block w-full py-2 hover:bg-gray-100"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
+
             <li className="w-full text-center">
               <Link
                 to="/contact"
-                className="block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-all w-11/12 mx-auto my-1"
+                className="block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 w-11/12 mx-auto"
                 onClick={() => setIsOpen(false)}
               >
                 Let’s Talk
               </Link>
             </li>
+
             <li className="w-full text-center">
               <Link
                 to="/brochure"
-                className="block border border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 transition-all w-11/12 mx-auto my-1"
+                className="block border border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 w-11/12 mx-auto"
                 onClick={() => setIsOpen(false)}
               >
                 Download Brochure

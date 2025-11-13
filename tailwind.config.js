@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     screens: {
+      'navdesk': '1200px',
       sm: '640px',   // small devices
       md: '768px',   // tablets
       lg: '1024px',  // laptops
